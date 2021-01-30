@@ -15,6 +15,7 @@ In order to make my explaination easier to understand, I abstract the architectu
 *The organization structure*
 
 ![](./structure.svg)
+
 Description of this departments and jobs:
 - [CEO](./ceo.py): 
     1. Deploy workshop number according to the resource(CPU cores).

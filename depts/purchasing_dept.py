@@ -52,4 +52,4 @@ def buyer(production_line, test_data, total_workshop):
 
             time.sleep(0.0000001)
     except Exception as e:
-        logger.error(e.args)
+        logger.error(e)

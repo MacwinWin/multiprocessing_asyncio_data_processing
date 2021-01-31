@@ -9,7 +9,7 @@ import logging
 from multiprocessing import Process, cpu_count, Queue
 import aioprocessing
 
-from depts import purchasing_dept, production_dept, transportation_dept, supervision_dept
+from depts import purchasing_dept, production_dept, transportation_dept, operation_dept
 from design import product_design
 from raw_material import data
 
@@ -34,8 +34,8 @@ if __name__ == "__main__":
 
     # one purchasing dept(single process)
     purchasing = Process(target=purchasing_dept.buyer, args=(production_line, data.test_data, total_workshop))
-    # one supervision dept(single process)
-    supervision = Process(target=supervision_dept.supervisor, args=(production_line, total_workshop))
+    # one operation dept(single process)
+    operation = Process(target=operation_dept.ops, args=(production_line, total_workshop))
     # multi workshop(multi production line) and different job position(multi processes + multi threads + multi coroutines)
     logger.info(f"Total {total_workshop} workshop")
     workshop_pool = []
@@ -48,10 +48,10 @@ if __name__ == "__main__":
 
     # start every dept
     purchasing.start()
-    supervision.start()
+    operation.start()
     transportation.start()
     purchasing.join()
-    supervision.join()
+    operation.join()
     for workshop in workshop_pool:
         workshop.join()
     transportation.join()

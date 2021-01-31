@@ -64,4 +64,5 @@ As we can see the project purchase 5000+ materials every 1 second, and give them
 ![](./15s.gif)
 
 To-Do List
+- [ ] Continuously optimize the code to improve the running speed
 - [ ] Add type hints

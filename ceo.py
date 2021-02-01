@@ -4,6 +4,7 @@
 # @time   : 01/26/21 20:18:18
 # @File   : factory.py
 
+import sys
 import logging
 
 from multiprocessing import Process, cpu_count, Queue
@@ -23,10 +24,13 @@ ch.setFormatter(formatter)
 
 logger.addHandler(ch)
 
-# total production line according to cpu core
-total_workshop = cpu_count() - 3
 
 if __name__ == "__main__":
+    # total production line according to cpu core
+    total_workshop = cpu_count() - 3
+    if total_workshop <= 0:
+        logger.warning(f"Not enough resource to create workshop")
+        sys.exit()
     # every workshop has one production line(thread-safe synchronize message queue)
     production_line = [Queue() for i in range(total_workshop)]
     # all production lines share one transportation line(thread-safe asynchronous message queue)

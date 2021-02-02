@@ -1,6 +1,9 @@
 <p align="center">
     <img src="./first_image.jpg">
 
+[elenabsl/Shutterstock](https://www.shutterstock.com/image-vector/innovative-contemporary-smart-industry-product-design-1160095369)
+
+------
 # multiprocessing_asyncio_data_processing
 
 [![Documentation](https://img.shields.io/badge/Python-3.7%2B-green.svg)](https://docs.python.org/3/library/asyncio-task.html#asyncio.run)

@@ -82,7 +82,7 @@ Description of this departments and jobs:
 ## How To Use
 ```bash
 # build image
->>> docker build -t test:1.0
+>>> docker build -t test:1.0 .
 # run the image as a container
 >>> docker run -i -t -d -v $(pwd):/app --name test test:1.0
 >>> docker exec -i -t test /bin/bash

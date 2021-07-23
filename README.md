@@ -96,13 +96,18 @@ Deploied resource to the Docker of CPUs 8, 8G RAM.
 As we can see the project purchase 5000+ materials every 1 second, and give them to 5 workshop to make product. Every production line has no backlog. Every workshop's worker roster size stable at around 5000.
 <p align="center">
     <img src="./limit_20s.gif">
+    
 But if there is no limit of purching speed, it will lead to the quantity of raw materials far exceeds the actual production capacity. A large backlog of raw materials on the production line. Seriously reduce the performance of the production line. The workshop was unable to obtain sufficient raw materials, resulting in a significant drop in the company's production capacity.
 <p align="center">
     <img src="./nolimit_20s.gif">
+    
 So the best solution is to determine the number of workshops based on the number of resources(number of CPU cores), and then reasonably set the procurement speed, so that the raw material procurement speed matches the actual production capacity, and there is no backlog in the production line.
+    
 ## To-Do List
 - [ ] Continuously optimize the code to improve the running speed
 - [ ] Add type hints
+- [ ] Speed up the 'factory' through some ways. For example, compile the python script file(.py) to binary file(.so).
+    
 ## Caption
 ### 1: 
 Aioprocessing in this project is only used its AioJoinableQueue which is a thread-safe asynchronous queue to gather the output from multi processes. But because of being made of pure Python, the speed of AioJoinableQueue is not satisfactory. So it can be replaced in the future.
